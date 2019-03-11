@@ -22,20 +22,25 @@
       </div><!--end of container-->
     </nav><!--end of nav-->
     <div class="container">
+      <?php if($msg != ''): ?>
+        <div class="alert <?php echo $msgClass; ?>">
+          <?php echo $msg; ?>
+        </div>
+      <?php endif; ?>
       <form class="" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         <div class="form-group">
           <label>Name</label>
-          <input type="text" name="name" class="form-control">
+          <input type="text" name="name" class="form-control" value="<?php echo isset($_POST['name']) ? $localName :''; ?>">
         </div><!--end of form-group-->
 
         <div class="form-group">
           <label>Email</label>
-          <input type="text" name="email" class="form-control">
+          <input type="text" name="email" class="form-control" value="<?php echo isset($_POST['email']) ? $localEmail :''; ?>">
         </div><!--end of form-group-->
 
         <div class="form-group">
-          <label>Message</label>
-          <input type="text" name="messge" class="form-control">
+          <label>Message</label><br>
+          <input type="text" class="form-control" name="message" value="<?php echo isset($_POST['message']) ? $localMessage :''; ?>">
         </div><!--end of form-group-->
         <br>
         <button type="submit" name="btnSubmit" class="btn btn-primary">Submit</button>
